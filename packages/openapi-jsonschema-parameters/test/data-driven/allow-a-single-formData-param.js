@@ -13,7 +13,9 @@ module.exports = {
   outputSchema: {
     formData: {
       properties: {
-        wowow: {},
+        wowow: {
+          $ref: 'foo'
+        },
       },
       required: ['wowow'],
     },

@@ -113,6 +113,10 @@ function handleNullableSchema(schema) {
     return schema;
   }
 
+  if (schema.$ref) {
+    return { $ref: schema.$ref };
+  }
+
   const newSchema = { ...schema };
 
   SUBSCHEMA_KEYWORDS.forEach((keyword) => {
@@ -140,7 +144,6 @@ function handleNullableSchema(schema) {
     }
   });
 
-  delete newSchema.$ref;
 
   if (schema.nullable) {
     delete newSchema.nullable;
